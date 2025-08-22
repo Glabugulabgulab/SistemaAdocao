@@ -1,11 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
-void cadastrarAnimal() {
+int cadastrarAnimal(char E[10][20], char C[10][20], int ID[10], int Cod[10], int Status[10], int num_animais){
     printf("=== Cadastro de Animal ===\n");
-    // Aqui você colocaria o código para cadastrar um animal
-    printf("Animal cadastrado com sucesso!\n\n");
+    printf("Informe a especie: ");
+    scanf("%s", E[num_animais]);
+    printf("Informe a idade: ");
+    scanf("%d", &ID[num_animais]);
+    printf("Informe a cor: ");
+    scanf("%s", C[num_animais]);
+    printf("Informe o codigo: ");
+    scanf("%d", &Cod[num_animais]);
+    Status[num_animais] = 0; // Inicializa status como disponível
+    
+    printf("Animal cadastrado com sucesso!\n");
+    return num_animais + 1; //retorna total atualizado
 }
 
 void registrarAdocao() {
@@ -34,6 +45,12 @@ void relatorioAnimaisDisponiveis() {
 
 int main() {
     int opcao;
+    char E[10][20];
+    char C[10][20];
+    int ID[10];
+    int Cod[10];
+    int Status[10] = {0};
+    int num_animais = 0;
 
     do {
         printf("========= MENU =========\n");
@@ -51,7 +68,7 @@ int main() {
 
         switch(opcao) {
             case 1:
-                cadastrarAnimal();
+                num_animais = cadastrarAnimal(E, C, ID, Cod, Status, num_animais);
                 break;
             case 2:
                 registrarAdocao();
