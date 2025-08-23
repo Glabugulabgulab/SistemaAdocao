@@ -19,10 +19,27 @@ int cadastrarAnimal(char E[10][20], char C[10][20], int ID[10], int Cod[10], int
     return num_animais + 1; //retorna total atualizado
 }
 
-void registrarAdocao() {
-    printf("=== Registro de Ado√ß√£o ===\n");
-    // Aqui voc√™ colocaria o c√≥digo para registrar uma ado√ß√£o
-    printf("Ado√ß√£o registrada com sucesso!\n\n");
+void registrarAdocao(int Cod[10], int Status[10], int num_animais) {
+    printf("=== Registro de AdoÁ„o ===\n");
+    int codigoBusca;
+
+    printf("Informe o codigo do animal a ser adotado: ");
+    scanf("%d", &codigoBusca);
+
+    for (int i = 0; i < num_animais; i++) {
+        if (Cod[i] == codigoBusca) {
+            if (Status[i] == 0) {
+                Status[i] = 1;
+                printf("AdoÁ„o registrada com sucesso!\n\n");
+            } else {
+                printf("Erro: Este animal ja foi adotado.\n\n");
+            }
+            return; 
+        }
+    }
+
+    // Se o laÁo terminou e a funÁ„o chegou atÈ aqui, o animal n„o foi encontrado.
+    printf("Erro: Animal com este codigo n„o foi encontrado.\n\n");
 }
 
 void pesquisarAnimal() {
