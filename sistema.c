@@ -13,51 +13,51 @@ int cadastrarAnimal(char E[10][20], char C[10][20], int ID[10], int Cod[10], int
     scanf("%s", C[num_animais]);
     printf("Informe o codigo: ");
     scanf("%d", &Cod[num_animais]);
-    Status[num_animais] = 0; // Inicializa status como disponível
+    Status[num_animais] = 0; // Inicializa status como disponÃ­vel
     
     printf("Animal cadastrado com sucesso!\n");
     return num_animais + 1; //retorna total atualizado
 }
 
 void registrarAdocao(int Cod[10], int Status[10], int num_animais) {
-    printf("=== Registro de Ado��o ===\n");
+    printf("=== Registro de Adoção ===\n");
     int codigoBusca;
 
     printf("Informe o codigo do animal a ser adotado: ");
-    scanf("%d", &codigoBusca);
+    scanf("%d", &codigoBusca); //pede um código de busca, pra comparar com todos os códigos no vetor Cod.
 
     for (int i = 0; i < num_animais; i++) {
-        if (Cod[i] == codigoBusca) {
-            if (Status[i] == 0) {
+        if (Cod[i] == codigoBusca) {  //se encontrar o código equivalente, checa o status que está na mesma posição que o código (i).
+            if (Status[i] == 0) {  // se o status estiver zerado ( não adotado) então muda pra um ( adotado)
                 Status[i] = 1;
-                printf("Ado��o registrada com sucesso!\n\n");
-            } else {
+                printf("Adoção registrada com sucesso!\n\n");
+            } else {   // se o status não for 0 ele passa pro else.
                 printf("Erro: Este animal ja foi adotado.\n\n");
             }
             return; 
         }
     }
 
-    // Se o la�o terminou e a fun��o chegou at� aqui, o animal n�o foi encontrado.
-    printf("Erro: Animal com este codigo n�o foi encontrado.\n\n");
+    // Se o laço terminou e a função chegou até aqui, o animal não foi encontrado.
+    printf("Erro: Animal com este codigo não foi encontrado.\n\n");
 }
 
 void pesquisarAnimal() {
     printf("=== Pesquisa de Animal ===\n");
-    // Aqui você colocaria o código para pesquisar um animal
+    // Aqui vocÃª colocaria o cÃ³digo para pesquisar um animal
     printf("Animal encontrado (exemplo)!\n\n");
 }
 
 void relatorioAdocoes() {
-    printf("=== Relatório de Adoções ===\n");
-    // Aqui você colocaria o código para imprimir relatório de adoções
-    printf("Lista de adoções...\n\n");
+    printf("=== RelatÃ³rio de AdoÃ§Ãµes ===\n");
+    // Aqui vocÃª colocaria o cÃ³digo para imprimir relatÃ³rio de adoÃ§Ãµes
+    printf("Lista de adoÃ§Ãµes...\n\n");
 }
 
 void relatorioAnimaisDisponiveis() {
-    printf("=== Relatório de Animais Disponíveis ===\n");
-    // Aqui você colocaria o código para imprimir relatório de animais disponíveis
-    printf("Lista de animais disponíveis...\n\n");
+    printf("=== RelatÃ³rio de Animais DisponÃ­veis ===\n");
+    // Aqui vocÃª colocaria o cÃ³digo para imprimir relatÃ³rio de animais disponÃ­veis
+    printf("Lista de animais disponÃ­veis...\n\n");
 }
 
 int main() {
@@ -72,13 +72,13 @@ int main() {
     do {
         printf("========= MENU =========\n");
         printf("1. Cadastrar animal\n");
-        printf("2. Registrar adoção\n");
+        printf("2. Registrar adoÃ§Ã£o\n");
         printf("3. Pesquisar animal\n");
-        printf("4. Imprimir relatório de adoções\n");
-        printf("5. Imprimir relatório de animais disponíveis\n");
+        printf("4. Imprimir relatÃ³rio de adoÃ§Ãµes\n");
+        printf("5. Imprimir relatÃ³rio de animais disponÃ­veis\n");
         printf("6. Sair\n");
         printf("========================\n");
-        printf("Escolha uma opção: ");
+        printf("Escolha uma opÃ§Ã£o: ");
         scanf("%d", &opcao);
 
         system("cls || clear"); // Limpa a tela no Windows (cls) ou Linux/Mac (clear)
@@ -103,10 +103,11 @@ int main() {
                 printf("Saindo...\n");
                 break;
             default:
-                printf("Opção inválida! Tente novamente.\n\n");
+                printf("OpÃ§Ã£o invÃ¡lida! Tente novamente.\n\n");
         }
 
     } while(opcao != 6);
 
     return 0;
 }
+
