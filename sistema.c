@@ -37,8 +37,6 @@ void registrarAdocao(int Cod[10], int Status[10], int num_animais) {
             return; 
         }
     }
-
-    // Se o laço terminou e a função chegou até aqui, o animal não foi encontrado.
     printf("Erro: Animal com este codigo não foi encontrado.\n\n");
 }
 
@@ -110,4 +108,5 @@ int main() {
 
     return 0;
 }
+
 
