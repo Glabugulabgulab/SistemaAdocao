@@ -86,7 +86,7 @@ int main() {
                 num_animais = cadastrarAnimal(E, C, ID, Cod, Status, num_animais);
                 break;
             case 2:
-                registrarAdocao();
+                registrarAdocao(Cod, Status, num_animais);
                 break;
             case 3:
                 pesquisarAnimal();
@@ -108,5 +108,6 @@ int main() {
 
     return 0;
 }
+
 
 
